@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/motorcycleBackground"
+    android:background="@drawable/motorcyclebackground"
     tools:context=".MainFragment">
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/motorcycleDepotText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/motorcycle_depot"
@@ -34,34 +34,64 @@
         app:layout_constraintGuide_percent="0.75" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/harleyDavidsonButton"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_marginStart="20dp"
-        android:background="@drawable/Harley_davidson_logo"
+        android:background="@drawable/harleylogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/kawasakiButton"
         android:layout_width="100dp"
         android:layout_height="75dp"
-        android:background="@drawable/kawasakiLogo"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
-        app:layout_constraintTop_toTopOf="@+id/imageButton8" />
+        android:background="@drawable/kawasakilogo"
+        app:layout_constraintBottom_toBottomOf="@+id/harleyDavidsonButton"
+        app:layout_constraintEnd_toStartOf="@+id/suzukiButton"
+        app:layout_constraintStart_toEndOf="@+id/harleyDavidsonButton"
+        app:layout_constraintTop_toTopOf="@+id/harleyDavidsonButton" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/suzukiButton"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/suzukiLogo"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton9"
+        android:background="@drawable/suzukilogo"
+        app:layout_constraintBottom_toBottomOf="@+id/kawasakiButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton9" />
+        app:layout_constraintTop_toTopOf="@+id/kawasakiButton" />
+
+    <TextView
+        android:id="@+id/popularManufacturersText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Popular Manufacturers"
+        android:textColor="#804214"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/searchNowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Now!"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/popularManufacturersText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
