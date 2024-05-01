@@ -5,6 +5,10 @@
     <string name="motorcycle_depot">Motorcycle Depot</string>
     <string name="what_are_you_looking_for">What Are You Looking For?</string>
     <string name="enter_the_make_model_and_year_of_your_chosen_ride">Enter the make, model, and year of your chosen ride!</string>
-    <string name="make_model_year">Make, Model, Year</string>
+    <string name="make">Make (Required)</string>
+    <string name="model">Model (Optional)</string>
+    <string name="year">Year (Optional)</string>
     <string name="search">Search</string>
+    <string name="promptUser">Enter the make of your desired motorcycle</string>
+    <string name="enterValidMakeToast">Enter a valid make!</string>
 </resources>
