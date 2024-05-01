@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id = "@+id/main_fragment"
-        android:name = "com.example.finalproject.MainFragment"
+        android:id = "@+id/myCoordinatorLayout"
+        android:name = "com.example.finalproject.MotorcycleFragment"
         >
 
-    </fragment>
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
