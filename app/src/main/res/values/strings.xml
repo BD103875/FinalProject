@@ -9,6 +9,6 @@
     <string name="model">Model (Optional)</string>
     <string name="year">Year (Optional)</string>
     <string name="search">Search</string>
-    <string name="promptUser">Enter the make of your desired motorcycle</string>
+    <string name="promptUser">Please enter a make</string>
     <string name="enterValidMakeToast">Enter a valid make!</string>
 </resources>
