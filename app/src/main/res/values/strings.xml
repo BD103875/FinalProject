@@ -11,4 +11,6 @@
     <string name="search">Search</string>
     <string name="promptUser">Please enter a make</string>
     <string name="enterValidMakeToast">Enter a valid make!</string>
+    <string name="about_motorcycle_depot">About Motorcycle Depot</string>
+    <string name="this_app_is_meant_to_give_its_users_a_clear_idea_of_what_desired_brand_they_are_seeking_this_gives_motorcycle_enthusiasts_or_anyone_looking_for_some_background_on_their_bike_a_chance_to_learn_more_about_what_makes_their_ride_so_special">This app is meant to give its users a clear idea of what desired brand they are seeking. This gives motorcycle enthusiasts or anyone looking for some background on their bike a chance to learn more about what makes their ride so special.</string>
 </resources>

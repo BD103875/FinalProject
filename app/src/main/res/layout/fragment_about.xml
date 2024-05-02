@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutFragment"
-    android:id="@+id/aboutFragment">
+    android:id="@+id/aboutFragment"
+    android:background="@drawable/aboutbackground">
 
 
+    <TextView
+        android:id="@+id/aboutMotorcycleDepotText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="@string/about_motorcycle_depot"
+        android:textColor="#511A04"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/missionStatementText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:gravity="center"
+        android:text="@string/this_app_is_meant_to_give_its_users_a_clear_idea_of_what_desired_brand_they_are_seeking_this_gives_motorcycle_enthusiasts_or_anyone_looking_for_some_background_on_their_bike_a_chance_to_learn_more_about_what_makes_their_ride_so_special"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/aboutMotorcycleDepotText"
+        app:layout_constraintStart_toStartOf="@+id/aboutMotorcycleDepotText"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMotorcycleDepotText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
