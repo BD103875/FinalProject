@@ -13,4 +13,8 @@
     <string name="enterValidMakeToast">Enter a valid make!</string>
     <string name="about_motorcycle_depot">About Motorcycle Depot</string>
     <string name="this_app_is_meant_to_give_its_users_a_clear_idea_of_what_desired_brand_they_are_seeking_this_gives_motorcycle_enthusiasts_or_anyone_looking_for_some_background_on_their_bike_a_chance_to_learn_more_about_what_makes_their_ride_so_special">This app is meant to give its users a clear idea of what desired brand they are seeking. This gives motorcycle enthusiasts or anyone looking for some background on their bike a chance to learn more about what makes their ride so special.</string>
+    <string name="go_back">Go Back</string>
+    <string name="how_we_populate_our_app">How we populate our app?</string>
+    <string name="questions">Questions?</string>
+    <string name="if_you_re_having_trouble_selecting_or_finding_you_re_perferred_motorcycle_make_sure_to_use_proper_capitalization_and_check_for_grammar_errors_enter_the_make_exactly_as_is_for_example_if_you_wanted_harley_davidson_enter_quot_harley_davidson_quot">If you\'re having trouble selecting or finding you\'re perferred motorcycle make sure to use proper capitalization and check for grammar errors. Enter the make exactly as is, for example if you wanted Harley Davidson enter \"Harley-Davidson\"</string>
 </resources>

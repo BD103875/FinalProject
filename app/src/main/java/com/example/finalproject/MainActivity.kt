@@ -4,14 +4,13 @@ package com.example.finalproject
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.view.animation.OvershootInterpolator
-import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,11 +49,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-     //   Handler().postDelayed({
-     //       supportFragmentManager.commit {
-      //          replace(R.id.fragment_container, YourFragment())
-       //     }
-      //  }, DELAY_DURATION)
+
+
+
+
+
 
 
     }

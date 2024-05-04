@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutFragment"
-    android:id="@+id/aboutFragment"
-    android:background="@drawable/aboutbackground">
+    android:background="@drawable/aboutbackground"
+    tools:context=".AboutFragment">
 
 
     <TextView
@@ -33,4 +33,28 @@
         app:layout_constraintEnd_toEndOf="@+id/aboutMotorcycleDepotText"
         app:layout_constraintStart_toStartOf="@+id/aboutMotorcycleDepotText"
         app:layout_constraintTop_toBottomOf="@+id/aboutMotorcycleDepotText" />
+
+
+    <Button
+        android:id="@+id/websiteImplicitIntentButton"
+        android:background="@color/chrome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="@string/how_we_populate_our_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/missionStatementText" />
+
+    <Button
+        android:id="@+id/questionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/darkpurple"
+        android:text="@string/questions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/websiteImplicitIntentButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

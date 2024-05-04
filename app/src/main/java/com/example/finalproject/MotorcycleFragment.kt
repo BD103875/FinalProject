@@ -1,5 +1,6 @@
 package com.example.finalproject
 
+
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -11,12 +12,16 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.finalproject.databinding.FragmentMotorcycleBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -25,7 +30,7 @@ class MotorcycleFragment : Fragment() {
     private val binding get() = _binding!!
 
     val motorcycleMakeArray = listOf("Harley-Davidson", "Kawasaki", "Honda", "BMW", "Yamaha", "KTM", "Ducati", "Aprilia", "Suzuki", "Bimota", "Royal Enfield", "Indian", "Alta", "Energica")
-
+    private val viewModel: MotorcycleViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +40,8 @@ class MotorcycleFragment : Fragment() {
         val args = MotorcycleFragmentArgs.fromBundle(requireArguments())
         binding.makeText.text = Editable.Factory.getInstance().newEditable(args.popularManufacturersText)
 
+        var counter = 0
+        var checkValue = 3
 
         binding.searchButton.setOnClickListener{view ->
 
@@ -51,9 +58,30 @@ class MotorcycleFragment : Fragment() {
             }
             else if (!(makeMatch())) {
                 Toast.makeText(context, R.string.enterValidMakeToast, Toast.LENGTH_SHORT).show()
-            }
+                counter++
 
+
+                if (counter == checkValue) {
+                    checkValue += 3
+                        val alertDialogBuilder =
+                            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+                        alertDialogBuilder.setTitle("Having trouble?")
+                        alertDialogBuilder.setMessage(viewModel.message)
+                        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+                            val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
+                            binding.root.findNavController()
+                                .navigate(action)
+                            dialog.dismiss()
+                        }
+                        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        val alertDialog = alertDialogBuilder.create()
+                        alertDialog.show()
+                    }
+            }
     }
+
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -66,6 +94,13 @@ class MotorcycleFragment : Fragment() {
                 return NavigationUI.onNavDestinationSelected(menuItem, requireView().findNavController())
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+
+        binding.returnButton.setOnClickListener {
+            val motorcycleMakeChosen = args.popularManufacturersText
+            setFragmentResult("MAKE_CHOSEN", bundleOf("MAKE" to motorcycleMakeChosen))
+            binding.root.findNavController().navigateUp()
+        }
 
         return binding.root
     }

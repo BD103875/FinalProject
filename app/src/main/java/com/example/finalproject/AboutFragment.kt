@@ -1,5 +1,7 @@
 package com.example.finalproject
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,7 +20,16 @@ class AboutFragment : Fragment() {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
 
 
-
+        binding.websiteImplicitIntentButton.setOnClickListener {
+            val webIntent: Intent = Uri.parse("https://api-ninjas.com").let { webpage ->
+                Intent(Intent.ACTION_VIEW, webpage)
+            }
+        }
+       binding.questionsButton.setOnClickListener {
+           val webIntent: Intent = Uri.parse("https://api-ninjas.com/contact").let { webpage ->
+               Intent(Intent.ACTION_VIEW, webpage)
+           }
+       }
 
         return binding.root
     }

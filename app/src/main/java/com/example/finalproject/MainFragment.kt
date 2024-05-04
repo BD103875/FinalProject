@@ -8,8 +8,10 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -59,6 +61,17 @@ class MainFragment : Fragment() {
                 return NavigationUI.onNavDestinationSelected(menuItem, requireView().findNavController())
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+
+        setFragmentResultListener("MAKE_CHOSEN"){requestKey: String, bundle: Bundle ->
+            val chosenMake = bundle.getString("MAKE")
+            if(chosenMake != ""){
+                Toast.makeText(context, "Thanks for choosing $chosenMake", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+
 
 
         return binding.root
