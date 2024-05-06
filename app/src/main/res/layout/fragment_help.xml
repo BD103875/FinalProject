@@ -9,12 +9,13 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/helpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/if_you_re_having_trouble_selecting_or_finding_you_re_perferred_motorcycle_make_sure_to_use_proper_capitalization_and_check_for_grammar_errors_enter_the_make_exactly_as_is_for_example_if_you_wanted_harley_davidson_enter_quot_harley_davidson_quot"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -24,6 +25,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.39" />
+
+    <TextView
+        android:id="@+id/moreHelpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/need_more_help"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpText" />
+
+    <ImageButton
+        android:id="@+id/questionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/baseline_question_mark_24"
+        app:layout_constraintEnd_toEndOf="@+id/moreHelpText"
+        app:layout_constraintStart_toStartOf="@+id/moreHelpText"
+        app:layout_constraintTop_toBottomOf="@+id/moreHelpText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
