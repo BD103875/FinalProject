@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_motorcycleFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_motorcycleFragment_to_recyclerView"
+            app:destination="@id/recyclerView" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -35,4 +38,9 @@
         android:name="com.example.finalproject.helpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/recyclerView"
+        android:name="com.example.finalproject.RecyclerView"
+        android:label="fragment_recycler_view"
+        tools:layout="@layout/fragment_recycler_view" />
 </navigation>
