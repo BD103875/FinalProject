@@ -19,6 +19,8 @@ class RecyclerView : Fragment() {
         _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 
 
+
+
         return binding.root
     }
     }

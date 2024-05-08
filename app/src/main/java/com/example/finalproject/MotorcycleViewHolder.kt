@@ -7,6 +7,10 @@ class MotorcycleViewHolder(val binding : ListItemLayoutBinding) : RecyclerView.V
 
     fun bindMotorcycle(motorcycle: Motorcycle){
         currentMotorcycle = motorcycle
-        
+        binding.motorcycleMake.text = currentMotorcycle.make
+        binding.motorcycleModel.text = currentMotorcycle.model
+        binding.year.text = currentMotorcycle.year.toString()
+        binding.type.text = currentMotorcycle.type
+        binding.engine.text = currentMotorcycle.engine
     }
 }

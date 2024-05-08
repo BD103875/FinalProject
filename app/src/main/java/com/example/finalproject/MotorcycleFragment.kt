@@ -60,7 +60,6 @@ class MotorcycleFragment : Fragment() {
                 Toast.makeText(context, R.string.enterValidMakeToast, Toast.LENGTH_SHORT).show()
                 counter++
 
-
                 if (counter == checkValue) {
                     checkValue += 3
                         val alertDialogBuilder =
