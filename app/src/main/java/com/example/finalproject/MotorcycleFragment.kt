@@ -29,7 +29,7 @@ class MotorcycleFragment : Fragment() {
     private var _binding: FragmentMotorcycleBinding? = null
     private val binding get() = _binding!!
 
-    val motorcycleMakeArray = listOf("Harley-Davidson", "Kawasaki", "Honda", "BMW", "Yamaha", "KTM", "Ducati", "Aprilia", "Suzuki", "Bimota", "Royal Enfield", "Indian", "Alta", "Energica")
+   // val motorcycleMakeArray = listOf("Harley-Davidson", "Kawasaki", "Honda", "BMW", "Yamaha", "KTM", "Ducati", "Aprilia", "Suzuki", "Bimota", "Royal Enfield", "Indian", "Alta", "Energica")
     private val viewModel: MotorcycleViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,46 +40,54 @@ class MotorcycleFragment : Fragment() {
         val args = MotorcycleFragmentArgs.fromBundle(requireArguments())
         binding.makeText.text = Editable.Factory.getInstance().newEditable(args.popularManufacturersText)
 
-        var counter = 0
-        var checkValue = 3
+
+
 
         binding.searchButton.setOnClickListener{view ->
 
-            fun makeMatch(): Boolean {
-                for (motorcycleMakes in motorcycleMakeArray) {
-                    if (binding.makeText.text.toString() == motorcycleMakes) {
-                         return true
-                    }
-                }
-                return false
-            }
+//            fun makeMatch(): Boolean {
+//                for (motorcycleMakes in motorcycleMakeArray) {
+//                    if (binding.makeText.text.toString() == motorcycleMakes) {
+//                         return true
+//                    }
+//                }
+//                return false
+//            }
             if(TextUtils.isEmpty(binding.makeText.text.toString())){
                 Snackbar.make(binding.myCoordinatorLayout, R.string.promptUser, Snackbar.LENGTH_SHORT).show()
             }
-            else if (!(makeMatch())) {
+            else if (!(viewModel.makeMatch(binding.makeText.text.toString()))) {
                 Toast.makeText(context, R.string.enterValidMakeToast, Toast.LENGTH_SHORT).show()
-                counter++
+               // counter++
+                viewModel.incrimentCounter()
 
-                if (counter == checkValue) {
-                    checkValue += 3
-                        val alertDialogBuilder =
-                            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-                        alertDialogBuilder.setTitle("Having trouble?")
-                        alertDialogBuilder.setMessage(viewModel.message)
-                        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-                            val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
-                            binding.root.findNavController()
-                                .navigate(action)
-                            dialog.dismiss()
-                        }
-                        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-                            dialog.dismiss()
-                        }
-                        val alertDialog = alertDialogBuilder.create()
-                        alertDialog.show()
-                    }
+                   if(viewModel.checkValue.value == viewModel.counter.value){
+                       // checkValue += 3
+                       viewModel.incrimentCheckValue()
+                       val alertDialogBuilder =
+                           MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+                       alertDialogBuilder.setTitle("Having trouble?")
+                       alertDialogBuilder.setMessage(viewModel.message)
+                       alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+                           val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
+                           binding.root.findNavController()
+                               .navigate(action)
+                           dialog.dismiss()
+                       }
+                       alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+                           dialog.dismiss()
+                       }
+                       val alertDialog = alertDialogBuilder.create()
+                       alertDialog.show()
+                   }
+                   }
+            else{
+                val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToRecyclerView(binding.makeText.text.toString(), binding.modelText.text.toString(), binding.yearText.text.toString())
+                binding.root.findNavController().navigate(action)
             }
-    }
+
+               }
+
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {

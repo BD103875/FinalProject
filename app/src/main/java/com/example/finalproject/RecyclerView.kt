@@ -19,6 +19,9 @@ class RecyclerView : Fragment() {
         _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 
 
+    val motorcycles = listOf(Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"))
+    val mAdapter = MotorcycleAdapter(motorcycles)
+        binding.recyclerView.adapter = mAdapter
 
 
         return binding.root
