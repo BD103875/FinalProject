@@ -61,25 +61,30 @@ class MotorcycleFragment : Fragment() {
                // counter++
                 viewModel.incrimentCounter()
 
-                   if(viewModel.checkValue.value == viewModel.counter.value){
+                //   if(viewModel.checkValue.value == viewModel.counter.value){
                        // checkValue += 3
-                       viewModel.incrimentCheckValue()
-                       val alertDialogBuilder =
-                           MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-                       alertDialogBuilder.setTitle("Having trouble?")
-                       alertDialogBuilder.setMessage(viewModel.message)
-                       alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-                           val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
-                           binding.root.findNavController()
-                               .navigate(action)
-                           dialog.dismiss()
-                       }
-                       alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-                           dialog.dismiss()
-                       }
-                       val alertDialog = alertDialogBuilder.create()
-                       alertDialog.show()
-                   }
+                viewModel.compare.observe(viewLifecycleOwner) {compare ->
+                    if(compare) {
+                        viewModel.incrimentCheckValue()
+                        val alertDialogBuilder =
+                            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+                        alertDialogBuilder.setTitle("Having trouble?")
+                        alertDialogBuilder.setMessage(viewModel.message)
+                        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+                            val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
+                            binding.root.findNavController()
+                                .navigate(action)
+                            dialog.dismiss()
+                        }
+                        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+                            dialog.dismiss()
+                        }
+                        val alertDialog = alertDialogBuilder.create()
+                        alertDialog.show()
+                    }
+                }
+
+
                    }
             else{
                 val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToRecyclerView(binding.makeText.text.toString(), binding.modelText.text.toString(), binding.yearText.text.toString())

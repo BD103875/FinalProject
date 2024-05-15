@@ -14,9 +14,9 @@ class MotorcycleViewModel : ViewModel() {
     private val _checkValue = MutableLiveData(3)
     val checkValue : LiveData<Int>
         get() = _checkValue
-//    private val _compare = MutableLiveData(false)
-//    val compare : LiveData<Boolean>
-//        get() = _compare
+    private val _compare = MutableLiveData(false)
+    val compare : LiveData<Boolean>
+        get() = _compare
     fun makeMatch(userInput : String): Boolean {
         for (motorcycleMakes in motorcycleMakeArray) {
             if (userInput == motorcycleMakes) {
@@ -28,12 +28,20 @@ class MotorcycleViewModel : ViewModel() {
     fun incrimentCounter() {
         val currentIndex = counter.value ?: 0
         _counter.value = currentIndex + 1
+        comparison()
     }
 
     fun incrimentCheckValue(){
         val currentCheckValue = checkValue.value ?: 0
         _checkValue.value = currentCheckValue + 3
     }
+
+    private fun comparison(){
+        if(counter.value == checkValue.value){
+            _compare.value = true
+        }
+    }
+
 
 
 
