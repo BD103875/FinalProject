@@ -71,9 +71,6 @@ class MainFragment : Fragment() {
         }
 
 
-
-
-
         return binding.root
     }
     override fun onDestroyView() {

@@ -37,7 +37,11 @@
         android:id="@+id/helpFragment"
         android:name="com.example.finalproject.helpFragment"
         android:label="fragment_help"
-        tools:layout="@layout/fragment_help" />
+        tools:layout="@layout/fragment_help" >
+        <action
+            android:id="@+id/action_helpFragment_to_makesSupported"
+            app:destination="@id/makesSupported" />
+    </fragment>
     <fragment
         android:id="@+id/recyclerView"
         android:name="com.example.finalproject.RecyclerView"
@@ -53,4 +57,9 @@
             android:name="Year"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/makesSupported"
+        android:name="com.example.finalproject.MakesSupported"
+        android:label="fragment_makes_supported"
+        tools:layout="@layout/fragment_makes_supported" />
 </navigation>

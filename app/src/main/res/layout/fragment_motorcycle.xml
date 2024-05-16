@@ -14,6 +14,21 @@
         android:orientation="vertical"
         tools:context=".MotorcycleFragment">
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#000000"
+            android:backgroundTint="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="@+id/guideline6"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="anim/ridingbiker.json"
+            app:lottie_loop="true" />
+
         <EditText
             android:id="@+id/makeText"
             android:layout_width="0dp"

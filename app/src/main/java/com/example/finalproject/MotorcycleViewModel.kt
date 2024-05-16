@@ -11,9 +11,7 @@ class MotorcycleViewModel : ViewModel() {
     private val _counter = MutableLiveData(0)
     val counter : LiveData<Int>
         get() = _counter
-    private val _checkValue = MutableLiveData(3)
-    val checkValue : LiveData<Int>
-        get() = _checkValue
+
     private val _compare = MutableLiveData(false)
     val compare : LiveData<Boolean>
         get() = _compare
@@ -23,21 +21,21 @@ class MotorcycleViewModel : ViewModel() {
                 return true
             }
         }
+        comparison()
         return false
     }
     fun incrimentCounter() {
         val currentIndex = counter.value ?: 0
         _counter.value = currentIndex + 1
-        comparison()
     }
 
-    fun incrimentCheckValue(){
-        val currentCheckValue = checkValue.value ?: 0
-        _checkValue.value = currentCheckValue + 3
+    fun resetCounter(){
+        _counter.value = 0
+        _compare.value = false
     }
 
     private fun comparison(){
-        if(counter.value == checkValue.value){
+        if(counter.value == 3){
             _compare.value = true
         }
     }

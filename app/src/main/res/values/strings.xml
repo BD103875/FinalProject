@@ -21,4 +21,7 @@
     <string name="type">Type :</string>
     <string name="engine">Engine :</string>
     <string name="years">Year :</string>
+    <string name="the_list_of_motorcycle_makes_supported_on_this_app_are">The list of motorcycle makes supported on this app are :</string>
+    <string name="harley_davidson_kawasaki_honda_bmw_yamaha_ktm_ducati_aprilia_suzuki_bimota_royal_enfield_indian_alta_energica">Harley-Davidson, Kawasaki, Honda, BMW, Yamaha, KTM, Ducati, Aprilia, Suzuki, Bimota, Royal Enfield, Indian, Alta, Energica</string>
+    <string name="note_this_app_is_still_being_developed_and_more_motorcycle_makes_are_still_planning_to_be_added">*Note: This app is still being developed and more motorcycle makes are still planning to be added*</string>
 </resources>

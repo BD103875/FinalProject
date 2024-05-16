@@ -24,11 +24,13 @@ class AboutFragment : Fragment() {
             val webIntent: Intent = Uri.parse("https://api-ninjas.com").let { webpage ->
                 Intent(Intent.ACTION_VIEW, webpage)
             }
+            startActivity(webIntent)
         }
        binding.questionsButton.setOnClickListener {
            val webIntent: Intent = Uri.parse("https://api-ninjas.com/contact").let { webpage ->
                Intent(Intent.ACTION_VIEW, webpage)
            }
+           startActivity(webIntent)
        }
 
         return binding.root
