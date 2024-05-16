@@ -41,26 +41,8 @@ class MotorcycleFragment : Fragment() {
         binding.makeText.text = Editable.Factory.getInstance().newEditable(args.popularManufacturersText)
 
 
-        viewModel.compare.observe(viewLifecycleOwner) {compare ->
-            if(compare) {
-                val alertDialogBuilder =
-                    MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-                alertDialogBuilder.setTitle("Having trouble?")
-                alertDialogBuilder.setMessage(viewModel.message)
-                alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-                    val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
-                    binding.root.findNavController()
-                        .navigate(action)
-                    dialog.dismiss()
-                }
-                alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-                    dialog.dismiss()
-                }
-                val alertDialog = alertDialogBuilder.create()
-                alertDialog.show()
-                viewModel.resetCounter()
-            }
-        }
+
+
 
         binding.searchButton.setOnClickListener{view ->
 
@@ -71,6 +53,25 @@ class MotorcycleFragment : Fragment() {
             else if (!(viewModel.makeMatch(binding.makeText.text.toString()))) {
                 Toast.makeText(context, R.string.enterValidMakeToast, Toast.LENGTH_SHORT).show()
                 viewModel.incrimentCounter()
+
+                if(viewModel.counter.value == 3) {
+                    viewModel.resetCounter()
+                    val alertDialogBuilder =
+                        MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+                    alertDialogBuilder.setTitle("Having trouble?")
+                    alertDialogBuilder.setMessage(viewModel.message)
+                    alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+                        val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
+                        binding.root.findNavController()
+                            .navigate(action)
+                        dialog.dismiss()
+                    }
+                    alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    val alertDialog = alertDialogBuilder.create()
+                    alertDialog.show()
+                }
                    }
             else{
                 val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToRecyclerView(binding.makeText.text.toString(), binding.modelText.text.toString(), binding.yearText.text.toString())

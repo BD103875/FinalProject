@@ -29,6 +29,7 @@
             app:lottie_fileName="anim/ridingbiker.json"
             app:lottie_loop="true" />
 
+
         <EditText
             android:id="@+id/makeText"
             android:layout_width="0dp"
