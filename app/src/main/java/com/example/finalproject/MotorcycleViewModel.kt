@@ -1,8 +1,12 @@
 package com.example.finalproject
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MotorcycleViewModel : ViewModel() {
     val message = "Need help finding your make?"
@@ -28,6 +32,19 @@ class MotorcycleViewModel : ViewModel() {
 
     fun resetCounter(){
         _counter.value = 0
+    }
+
+    fun getMotorcycles(){
+        val request = MotorcycleApiObject.motorcycleApiObject.getMotorcycles()
+        request.enqueue(object : Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.d("RESPONSE", "Failure: "+t.message)
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.d("RESPONSE", response.body().toString())
+            }
+        })
     }
 
 
