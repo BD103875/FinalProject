@@ -13,28 +13,26 @@ import com.example.finalproject.databinding.FragmentMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
-//class AppDialogFragment : DialogFragment() {
-//    private var _binding: FragmentAppDialogBinding? = null
-//    private val binding get() = _binding!!
-//    private val viewModel: MotorcycleViewModel by viewModels()
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-////    ): Dialog {
-//////        val alertDialogBuilder =
-//////            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-//////        alertDialogBuilder.setTitle("Having trouble?")
-//////        alertDialogBuilder.setMessage(viewModel.message)
-//////        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-//////            val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
-//////            binding.root.findNavController()
-//////                .navigate(action)
-//////            dialog.dismiss()
-//////        }
-//////        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-//////            dialog.dismiss()
-//////        }
-//////       return alertDialogBuilder.create()
-////
-////    }
-//    }
+class AppDialogFragment : DialogFragment() {
+    private var _binding: FragmentAppDialogBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: MotorcycleViewModel by viewModels()
+    override fun onCreateDialog(
+        savedInstanceState: Bundle?
+    ): Dialog {
+        val alertDialogBuilder = MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
+       alertDialogBuilder.setTitle("Having trouble?")
+        alertDialogBuilder.setMessage(viewModel.message)
+        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+            val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
+            binding.root.findNavController()
+                .navigate(action)
+            dialog.dismiss()
+        }
+        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+            dialog.dismiss()
+        }
+       return alertDialogBuilder.create()
+
+    }
+    }

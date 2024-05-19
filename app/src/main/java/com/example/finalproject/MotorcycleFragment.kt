@@ -12,6 +12,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -56,21 +57,8 @@ class MotorcycleFragment : Fragment() {
 
                 if(viewModel.counter.value == 3) {
                     viewModel.resetCounter()
-                    val alertDialogBuilder =
-                        MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme)
-                    alertDialogBuilder.setTitle("Having trouble?")
-                    alertDialogBuilder.setMessage(viewModel.message)
-                    alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
-                        val action = MotorcycleFragmentDirections.actionMotorcycleFragmentToHelpFragment()
-                        binding.root.findNavController()
-                            .navigate(action)
-                        dialog.dismiss()
-                    }
-                    alertDialogBuilder.setNegativeButton("No") { dialog, which ->
-                        dialog.dismiss()
-                    }
-                    val alertDialog = alertDialogBuilder.create()
-                    alertDialog.show()
+                    val dialog = AppDialogFragment()
+                    dialog.show(parentFragmentManager, "AppDialogFragmentTag")
                 }
                    }
             else{
