@@ -34,15 +34,22 @@ class MotorcycleViewModel : ViewModel() {
         _counter.value = 0
     }
 
+
+    private val _response = MutableLiveData<List<Motorcycle>>()
+    val response : LiveData<List<Motorcycle>>
+        get() = _response
+
     fun getMotorcycles(){
         val request = MotorcycleApiObject.motorcycleApiObject.getMotorcycles()
-        request.enqueue(object : Callback<String>{
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        request.enqueue(object : Callback<List<MotorcycleFeatures>>{
+            override fun onFailure(call: Call<List<MotorcycleFeatures>>, t: Throwable) {
                 Log.d("RESPONSE", "Failure: "+t.message)
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                Log.d("RESPONSE", response.body().toString())
+            override fun onResponse(call: Call<List<MotorcycleFeatures>>, response: Response<List<MotorcycleFeatures>>) {
+                var listOfMotorcyclesFetched = mutableListOf<Motorcycle>()
+                val motorcycleResponse : List<MotorcycleFeatures>? = response.body()
+
             }
         })
     }
