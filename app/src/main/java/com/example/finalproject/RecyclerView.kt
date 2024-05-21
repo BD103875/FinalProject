@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.finalproject.databinding.FragmentRecyclerViewBinding
-
+import androidx.lifecycle.Observer
 
 class RecyclerView : Fragment() {
     private var _binding: FragmentRecyclerViewBinding? = null
@@ -19,12 +19,11 @@ class RecyclerView : Fragment() {
     ): View? {
         _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 
-
-    val motorcycles = listOf(Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"),Motorcycle("B","R",1, "A", "N"))
-    val mAdapter = MotorcycleAdapter(motorcycles)
-        binding.recyclerView.adapter = mAdapter
-
         viewModel.getMotorcycles()
+        viewModel.response.observe(viewLifecycleOwner) { motorcyclesList ->
+            val adapter = MotorcycleAdapter(motorcyclesList)
+            binding.recyclerView.adapter = adapter
+        }
 
         return binding.root
     }

@@ -48,7 +48,20 @@ class MotorcycleViewModel : ViewModel() {
 
             override fun onResponse(call: Call<List<MotorcycleFeatures>>, response: Response<List<MotorcycleFeatures>>) {
                 var listOfMotorcyclesFetched = mutableListOf<Motorcycle>()
-                val motorcycleResponse : List<MotorcycleFeatures>? = response.body()
+
+                val motorcycleResponse : List<MotorcycleFeatures>  = response.body() ?: listOf()
+
+                for(motorcycleFeatures in motorcycleResponse){
+                    val make = motorcycleFeatures.make
+                    val model = motorcycleFeatures.model
+                    val year = motorcycleFeatures.year
+                    val type = motorcycleFeatures.type
+                    val engine = motorcycleFeatures.engine
+
+                    val newMotorcycle = Motorcycle(make, model, year, type, engine)
+                    listOfMotorcyclesFetched.add(newMotorcycle)
+                }
+                _response.value = listOfMotorcyclesFetched
 
             }
         })

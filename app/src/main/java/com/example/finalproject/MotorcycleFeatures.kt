@@ -1,19 +1,20 @@
 package com.example.finalproject
 import com.squareup.moshi.Json
 
-class MotorcycleFeatures{
-    lateinit var motorcycleProperties : MotorcycleProperties
-}
-class MotorcycleProperties{
-    @Json(name = "make")
-    var make : String = ""
-    @Json(name = "model")
-    var model : String = ""
-    @Json(name = "year")
-    var year : Int = 0
-    @Json(name = "type")
-    var type : String = ""
-    @Json(name = "engine")
-    var engine : String = ""
+class MotorcycleFeatures {
 
+    @Json(name = "make")
+    var make: String = ""
+
+    @Json(name = "model")
+    var model: String = ""
+
+    @Json(name = "year")
+    var year: Int = 0
+
+    @Json(name = "type")
+    var type: String = ""
+
+    @Json(name = "engine")
+    var engine: String = ""
 }
