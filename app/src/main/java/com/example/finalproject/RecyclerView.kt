@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.finalproject.databinding.FragmentRecyclerViewBinding
 import androidx.lifecycle.Observer
+import retrofit2.Call
 
-class RecyclerView : Fragment() {
+class RecyclerView : Fragment(){
     private var _binding: FragmentRecyclerViewBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MotorcycleViewModel by viewModels()
@@ -19,6 +20,12 @@ class RecyclerView : Fragment() {
     ): View? {
         _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 
+        val args = RecyclerViewArgs.fromBundle(requireArguments())
+        val make = args.Make
+        val model = args.Model
+        val year = args.Year
+
+
         viewModel.getMotorcycles()
         viewModel.response.observe(viewLifecycleOwner) { motorcyclesList ->
             val adapter = MotorcycleAdapter(motorcyclesList)
@@ -27,4 +34,6 @@ class RecyclerView : Fragment() {
 
         return binding.root
     }
-    }
+
+
+}
