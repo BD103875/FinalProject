@@ -39,8 +39,8 @@ class MotorcycleViewModel : ViewModel() {
     val response : LiveData<List<Motorcycle>>
         get() = _response
 
-    fun getMotorcycles(){
-        val request = MotorcycleApiObject.motorcycleApiObject.getMotorcycles()
+    fun getMotorcycles(make: String, model: String, year: String){
+        val request = MotorcycleApiObject.motorcycleApiObject.getMotorcycles(make, model, year)
         request.enqueue(object : Callback<List<MotorcycleFeatures>>{
             override fun onFailure(call: Call<List<MotorcycleFeatures>>, t: Throwable) {
                 Log.d("RESPONSE", "Failure: "+t.message)

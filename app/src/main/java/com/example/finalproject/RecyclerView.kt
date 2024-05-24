@@ -26,7 +26,7 @@ class RecyclerView : Fragment(){
         val year = args.Year
 
 
-        viewModel.getMotorcycles()
+        viewModel.getMotorcycles(make, model, year)
         viewModel.response.observe(viewLifecycleOwner) { motorcyclesList ->
             val adapter = MotorcycleAdapter(motorcyclesList)
             binding.recyclerView.adapter = adapter
