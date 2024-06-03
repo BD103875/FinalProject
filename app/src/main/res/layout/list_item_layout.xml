@@ -7,25 +7,24 @@
 
     <TextView
         android:id="@+id/motorcycleMake"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="45dp"
         android:textColor="#000000"
-        android:textSize="22sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Make" />
 
     <TextView
         android:id="@+id/motorcycleModel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="45dp"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintStart_toStartOf="@+id/motorcycleMake"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@id/motorcycleMake"
         tools:text="Model" />
 
@@ -52,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:text="@string/years"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -61,12 +60,13 @@
 
     <TextView
         android:id="@+id/year"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:paddingLeft="5dp"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/motorcycleYear"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toEndOf="@+id/motorcycleYear"
         app:layout_constraintTop_toTopOf="@+id/motorcycleYear"
         tools:text="Year" />
@@ -75,7 +75,7 @@
         android:id="@+id/motorcycleType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:text="@string/type"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -87,7 +87,7 @@
         android:id="@+id/motorcycleEngine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:text="@string/engine"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -97,12 +97,13 @@
 
     <TextView
         android:id="@+id/type"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:paddingLeft="5dp"
         android:textColor="#000000"
-        android:textSize="14sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/motorcycleType"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toEndOf="@+id/motorcycleType"
         app:layout_constraintTop_toTopOf="@+id/motorcycleType"
         tools:text="Type" />
@@ -116,14 +117,29 @@
 
     <TextView
         android:id="@+id/engine"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:paddingLeft="5dp"
         android:textColor="#000000"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/motorcycleEngine"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toEndOf="@+id/motorcycleEngine"
         app:layout_constraintTop_toTopOf="@+id/motorcycleEngine"
         tools:text="Engine" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
